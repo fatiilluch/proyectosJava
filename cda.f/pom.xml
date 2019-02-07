@@ -9,9 +9,6 @@
 	<name>cda.f Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
-
-
-
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -25,8 +22,8 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>4.3.11.Final</version>
 		</dependency>
-
 	</dependencies>
+
 	<build>
 		<finalName>cda.f</finalName>
 	</build>

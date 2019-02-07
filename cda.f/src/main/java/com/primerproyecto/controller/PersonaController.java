@@ -7,7 +7,7 @@ public class PersonaController {
 
 	private Persona personaInfo;
 	
-	private String mensajeUsuario ="";
+	private String mensajeUsuario;
 	
 	private PersonaService personaService;
 	
@@ -16,14 +16,22 @@ public class PersonaController {
 		
 		try {
 			personaService.guardarPersona(personaInfo);
-			mensajeUsuario="Se creo con exito";		
+			setMensajeUsuario("Se creo con exito");		
 			return "SUCCESS";
 		} catch (Exception e) {
-			mensajeUsuario=e.getMessage();
+			setMensajeUsuario(e.getMessage());
 			return "FAILED";
 		}
 		
 		
+	}
+
+	public String getMensajeUsuario() {
+		return mensajeUsuario;
+	}
+
+	public void setMensajeUsuario(String mensajeUsuario) {
+		this.mensajeUsuario = mensajeUsuario;
 	}
 	
 	
