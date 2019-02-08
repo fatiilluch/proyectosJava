@@ -36,7 +36,7 @@
             
       </form>
       
-     <a href="recibeDatos.jsp">Pagina recibe datos</a> 
+ 
 
 </div>
 
