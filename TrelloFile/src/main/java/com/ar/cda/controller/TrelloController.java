@@ -22,4 +22,14 @@ public class TrelloController
    
     	return "recibeDatos";
     }
+    
+    @RequestMapping(value = "recibeDatos")
+    public String trello(Model model, HttpServletRequest request) 
+    {
+  	Trello persona = new Trello (request.getParameter("nombre"), request.getParameter("apellido"),Integer.parseInt(request.getParameter("edad")));
+  	
+  	model.addAttribute("persona",persona);
+ 
+  	return "recibeDatos";
+  }
 }
