@@ -10,6 +10,7 @@ import com.ar.cda.model.Trello;
 @Controller
 public class TrelloController 
 {   
+    //Con AJAX
     @RequestMapping(value = "recibeDatos",params = {"nombre", "apellido", "edad" }, method = RequestMethod.GET)
     public String trello(Model model, 
     		 @RequestParam("nombre") String nombre,
@@ -23,6 +24,7 @@ public class TrelloController
     	return "recibeDatos";
     }
     
+    //Sin AJAX
     @RequestMapping(value = "recibeDatos")
     public String trello(Model model, HttpServletRequest request) 
     {
