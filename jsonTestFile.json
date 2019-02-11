@@ -1,0 +1,18 @@
+{
+  "id": 1,
+  "firstname": "Sashi <3",
+  "languages": [
+    {
+      "lang": "en",
+      "knowledge": "proficient"
+    },
+    {
+      "lang": "fr",
+      "knowledge": "advanced"
+    }
+  ],
+  "job": {
+    "site": "www.javacodegeeks.com",
+    "name": "Java Code Geeks"
+  }
+}

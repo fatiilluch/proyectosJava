@@ -9,8 +9,6 @@
 <body>
 
 <h1>Datos recibidos</h1>
-
-
         <!-- recibiendo parametros -->
    
         <table border="1">
