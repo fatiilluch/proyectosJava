@@ -38,16 +38,34 @@ public class TrelloController {
     
 //	//ver pagina www.uv.es/grimo/teaching/springMVC4pasoapaso/
 
-  @RequestMapping(value = "recibeDatos")
-  public String trello(Model model, HttpServletRequest request) 
-  {
-  	Trello persona = new Trello (request.getParameter("nombre"), request.getParameter("apellido"),Integer.parseInt(request.getParameter("edad")));
-  	
-  	model.addAttribute("persona",persona);
- 
-  	return "recibeDatos";
-  }
+  @RequestMapping(value = "recibeDatos", method = RequestMethod.GET)
+  
+  public String trello(HttpServletRequest req) 
+  {	
+	JSONObject objeto = new JSONObject();
+	JSONObject datos = new JSONObject();
 	
+	try {
+		
+		datos.put("nombre",req.getParameter("nombre"));
+		datos.put("apellido", req.getParameter("apellido"));
+		datos.put("edad", req.getParameter(String.valueOf("edad")));
+		objeto.put("datos", datos);
+		
+		
+		FileWriter writer = new FileWriter("C:\\Users\\L0649805\\workspace2\\pruebaDos.json");
+		writer.write(objeto.toJSONString());
+		writer.flush();
+		writer.close();
+	} catch (IOException e) {
+		e.printStackTrace();
+  }
+	String asd =  objeto.getJSONObject("pageInfo").getString("pageName");
+
+	
+	System.out.println(objeto.get("datos").toString());
+	return "redirect:\ttrello.jsp";
+ }
 	
 //	//@ResponseBody
 //    @RequestMapping(value = "recibeDatos",params = {"nombre", "apellido", "edad" }, method = RequestMethod.GET)
