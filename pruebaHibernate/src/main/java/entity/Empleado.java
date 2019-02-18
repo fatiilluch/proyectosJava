@@ -1,7 +1,7 @@
 package entity;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,9 +30,9 @@ public class Empleado implements Serializable
 	@Column(name = "FechaNac_Empleado")
 	private Date fechaNac;
 	
-	Empleado(long unDni, String unNombre, String unApellido, Integer unaEdad, Date unaFecha)
+	public Empleado(long unCodigo, String unNombre, String unApellido, Integer unaEdad, Date unaFecha)
 	{
-		this.codigo = unDni;
+		this.codigo = unCodigo;
 		this.nombre = unNombre;
 		this.apellido = unApellido;
 		this.edad = unaEdad;
@@ -64,11 +64,6 @@ public class Empleado implements Serializable
 	@Override
 	public String toString()
 	{
-		return "Empleado: " +
-			   "DNI: " + this.codigo + "\n" +
-			   "Nombre: " + this.nombre + "\n" +
-			   "Apellido: " + this.apellido + "\n" +
-			   "Edad: " + this.edad + "\n" +
-			   "Fecha de Nacimiento: " + this.fechaNac;
+		return "Empleado: [Codigo: " + this.codigo + ", Nombre: " + this.nombre + ", Apellido: " + this.apellido + ", Edad: " + this.edad + ", Fecha de Nacimiento: " + this.fechaNac + "]";
 	}
 }
