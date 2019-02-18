@@ -18,30 +18,26 @@
 	<h1>POST-GET AJAX</h1>      
     <div id="postdiv">
         <form id="customerForm">
-            <label>FirstName</label>
-            <input type="text" id="firstname" class="form-control"/>
-            <label>LastName</label>
-            <input type="text" id="lastname" class="form-control"/>
-            <button type="submit" id="postBtn" class="btn btn-primary">Submit</button>
+            <p> Nombre: <input type="text" id="firstname" class="form-control" placeholder = "Ingrese Nombre" /> </p>
+            <p> Apellido: <input type="text" id="lastname" class="form-control" placeholder = "Ingrese Apellido" /> </p> <br />
+            <button type="submit" id="postBtn" class="btn btn-primary"> Enviar </button>
         </form>
         
     </div>
     <div id="postResultDiv">
     </div>
-    <br/>
-    <div id="getdiv">
-        <button onclick = "configurarGrilla()" id="getBtn" >Get All Customers</button>
-    </div>
+
     <div id="getResultDiv">
     	<ul class="list-group">
     	</ul>
     </div>
     
    
-    
+    <!--  ver como hacer para que al apretar "Recibir Datos" me haga lo que hace en grid -->
 	 <div id="divGrilla">
-	<ul class="dropdown-menu" ></ul>
-  		<table id="grid"></table>
+<!-- 	<ul class="dropdown-menu" ></ul> -->
+		<button type = "submit" id = "getBtn" class = "bnt bn-primary"  > Recibir Datos </button> 
+  		<table id="getBtn"></table>
 	</div> 
     
 </div>

@@ -18,27 +18,33 @@ $( document ).ready(function() {
     		lastname :  $("#lastname").val()
     	}
     	
-    	// DO POST
-    	$.ajax({
-			type : "POST",
-			contentType : "application/json",
-			url : url + "/postcustomer",
-			data : JSON.stringify(formData),
-			dataType : 'json',
-			success : function(result) {
-				if(result.status == "Done"){
-					$("#postResultDiv").html("<strong>" + "Post Successfully! Customer's Info: FirstName = " 
-							+ result.data.firstname + " ,LastName = " + result.data.lastname + "</strong>");
-				}else{
-					$("#postResultDiv").html("<strong>Error</strong>");
-				}
-				console.log(result);
-			},
-			error : function(e) {
-				alert("Error!")
-				console.log("ERROR: ", e);
-			}
-		});
+    	if (formData.firstname != "" && formData.lastname != "")
+    	{
+    		// DO POST
+        	$.ajax({
+    			type : "POST",
+    			contentType : "application/json",
+    			url : url + "/postcustomer",
+    			data : JSON.stringify(formData),
+    			dataType : 'json',
+    			success : function(result) {
+    				if(result.status == "Done"){
+    					$("#postResultDiv").html("Done");
+    				}else{
+    					$("#postResultDiv").html("<strong>Error</strong>");
+    				}
+    				//console.log(result);
+    			},
+    			error : function(e) {
+    				alert("Error!")
+    				console.log("ERROR: ", e);
+    			}
+    		});
+    	}
+    	else 
+    	{
+    		alert(" Error, debe ingresar campos válidos ");
+    	}
     	
     	// Reset FormData after Posting
     	resetData();

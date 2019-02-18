@@ -3,12 +3,14 @@ package com.javasampleapproach.jqueryajax.model;
 public class Customer {
     private String firstname;
     private String lastname;
+    private Integer id;
      
     public Customer(){}
      
-    public Customer(String firstname, String lastname){
+    public Customer(String firstname, String lastname, Integer id){
         this.firstname = firstname;
         this.lastname = lastname;
+        this.setId(id);
     }
      
     // firstname
@@ -26,4 +28,13 @@ public class Customer {
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 }
