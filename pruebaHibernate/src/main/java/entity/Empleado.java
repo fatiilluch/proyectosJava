@@ -28,9 +28,9 @@ public class Empleado implements Serializable
 	private Integer edad;
 	
 	@Column(name = "FechaNac_Empleado")
-	private Date fechaNac;
+	private LocalDate fechaNac;
 	
-	public Empleado(long unCodigo, String unNombre, String unApellido, Integer unaEdad, Date unaFecha)
+	public Empleado(long unCodigo, String unNombre, String unApellido, Integer unaEdad, LocalDate unaFecha)
 	{
 		this.codigo = unCodigo;
 		this.nombre = unNombre;
@@ -57,9 +57,9 @@ public class Empleado implements Serializable
 	
 	public void setEdad(Integer edad) { this.edad = edad; }
 	
-	public Date getFechaNac() { return fechaNac; }
+	public LocalDate getFechaNac() { return fechaNac; }
 	
-	public void setFechaNac(Date fechaNac) { this.fechaNac = fechaNac; }
+	public void setFechaNac(LocalDate fechaNac) { this.fechaNac = fechaNac; }
 	
 	@Override
 	public String toString()
