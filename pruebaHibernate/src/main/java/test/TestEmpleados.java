@@ -57,8 +57,8 @@ public class TestEmpleados {
 
 	private static void insertInicial() 
 	{
-		Empleado e = new Empleado(10L, "Fatima", "Lluch", 25, new GregorianCalendar(1993, 06, 17).getTime());
-		Empleado e2 = new Empleado(11L, "Natalia María", "Giai", 25, new GregorianCalendar(1993, 06, 26).getTime());
+		Empleado e = new Empleado(10L, "Fatima", "Lluch", 25, LocalDate.of(1993, 6, 17));
+		Empleado e2 = new Empleado(11L, "Natalia María", "Giai", 25, LocalDate.of(1993, 6, 26));
 		
 		// En una transaccion se pueden hacer varias operaciones con la BD y no
 		// se hace efectiva hasta que llega al "commit"
