@@ -22,15 +22,23 @@ public class Student
 	@Column
 	private String Apellido;
 	
-//	@Column
-//	private int añoCursada;
+	@Column
+	private String Localidad;
 	
-	public Student(int studentId, String nombre, String apellido, int añoCursada) 
+	@Column
+	private char Sexo;
+	
+//	@Column
+//	private int aÃ±oCursada;
+	
+	public Student(int studentId, String nombre, String apellido, int aÃ±oCursada, String localidad, char sexo) 
 	{
 		this.id = studentId;
 		this.Nombre = nombre;
 		this.Apellido = apellido;
-		//this.añoCursada = añoCursada;
+		this.Localidad = localidad;
+		this.Sexo = sexo;
+		//this.aÃ±oCursada = aÃ±oCursada;
 	}
 
 	public Student() {}
@@ -65,13 +73,35 @@ public class Student
 		this.Apellido = apellido;
 	}
 	
+	public String getLocalidad() 
+	{
+		return Localidad;
+	}
+	
+	public void setLocalidad(String localidad) 
+	{
+		this.Localidad = localidad;
+	}
+	
+	public char getSexo() 
+	{
+		return Sexo;
+	}
+	
+	public void setSexo(char sexo) 
+	{
+		this.Sexo = sexo;
+	}
+	
+	
+	
 //	public int getAnioCursada() 
 //	{
-//		return añoCursada;
+//		return aÃ±oCursada;
 //	}
 //	
-//	public void setAnioCursada(int añoCursada) 
+//	public void setAnioCursada(int aÃ±oCursada) 
 //	{
-//		this.añoCursada = añoCursada;
+//		this.aÃ±oCursada = aÃ±oCursada;
 //	}
 }
