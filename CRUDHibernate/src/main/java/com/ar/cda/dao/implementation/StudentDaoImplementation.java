@@ -20,28 +20,19 @@ public class StudentDaoImplementation implements StudentDao
 	@Override
 	public void add(Student student) 
 	{
-		session.getCurrentSession().getTransaction().begin();;
 		session.getCurrentSession().save(student);	
-		session.getCurrentSession().getTransaction().commit();
-		session.getCurrentSession().close();
 	}
 
 	@Override
 	public void edit(Student student) 
 	{
-		session.getCurrentSession().getTransaction().begin();;
 		session.getCurrentSession().update(student);
-		session.getCurrentSession().getTransaction().commit();
-		session.getCurrentSession().close();
 	}
 
 	@Override
 	public void delete(int studentId) 
 	{
-		session.getCurrentSession().getTransaction().begin();;
 		session.getCurrentSession().delete(this.getStudent(studentId));
-		session.getCurrentSession().getTransaction().commit();
-		session.getCurrentSession().close();
 	}
 
 	@Override
@@ -54,11 +45,6 @@ public class StudentDaoImplementation implements StudentDao
 	@Override
 	public List<Student> getAllStudents() 
 	{
-		session.getCurrentSession().getTransaction().begin();
-		org.hibernate.Query query = session.getCurrentSession().createQuery("from Student");
-		List <Student> students = query.list();
-		session.getCurrentSession().getTransaction().commit();
-		session.getCurrentSession().close();
-		return students;
+		return session.getCurrentSession().createQuery("from Student");
 	}
 }
