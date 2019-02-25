@@ -46,8 +46,7 @@ public class StudentServiceImplementation implements StudentService
 
 	@Override
 	@Transactional
-    	public List getAllStudents() 
-    	{
-        	return studentDao.getAllStudents();
-    	}
+    public List getAllStudents() {
+        return studentDao.getAllStudents();
+    }
 }

@@ -25,7 +25,7 @@ public class StudentController
 		Student student = new Student();
 		map.put("student", student);
 		map.put("studentList", studentService.getAllStudents());
-		return "tablaPruebas";
+		return "student";
 	}
 
 	@RequestMapping(value = "/student.do", method = RequestMethod.POST)
@@ -47,7 +47,7 @@ public class StudentController
 					   studentFinal = searchedStudent != null ? searchedStudent : new Student() ;
 					   break;
 		}
-		map.put("student", student);
+		map.put("student", studentFinal);
 		map.put("studentList", studentService.getAllStudents());
 		
 		return "student";

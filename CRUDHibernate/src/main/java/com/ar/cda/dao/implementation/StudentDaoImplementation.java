@@ -2,8 +2,6 @@ package com.ar.cda.dao.implementation;
 
 import java.util.List;
 
-import javax.management.Query;
-
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -16,7 +14,7 @@ public class StudentDaoImplementation implements StudentDao
 {
 	@Autowired
 	private SessionFactory session;
-	
+
 	@Override
 	public void add(Student student) 
 	{
