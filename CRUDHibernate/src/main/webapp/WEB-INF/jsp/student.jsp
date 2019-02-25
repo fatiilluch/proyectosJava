@@ -13,7 +13,7 @@
 	<table>
 		<tr>
 			<td>Student ID</td>
-			<td><form:input path="id" /></td>
+			<td><form:input path="studentId" /></td>
 		</tr>
 		<tr>
 			<td>First name</td>
@@ -52,7 +52,7 @@
 	</tr>
 	<c:forEach items="${studentList}" var="student">
 		<tr>
-			<td>${student.id}</td>
+			<td>${student.studentId}</td>
 			<td>${student.getNombre()}</td>
 			<td>${student.getApellido()}</td>
 			<td>${student.getLocalidad()}</td>
