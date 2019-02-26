@@ -1,8 +1,8 @@
-package com.ar.cda.dao;
+package main.java.com.ar.cda.dao;
 
 import java.util.List;
 
-import com.ar.cda.model.Student;
+import main.java.com.ar.cda.model.Student;
 
 public interface StudentDao 
 {	

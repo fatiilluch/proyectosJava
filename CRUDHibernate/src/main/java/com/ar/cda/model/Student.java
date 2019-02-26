@@ -1,4 +1,4 @@
-package com.ar.cda.model;
+package main.java.com.ar.cda.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,16 +29,16 @@ public class Student
 	private char Sexo;
 	
 //	@Column
-//	private int añoCursada;
+//	private int aÃ±oCursada;
 	
-	public Student(int studentId, String nombre, String apellido, int añoCursada, String localidad, char sexo) 
+	public Student(int studentId, String nombre, String apellido, String localidad, char sexo) 
 	{
 		this.id = studentId;
 		this.Nombre = nombre;
 		this.Apellido = apellido;
 		this.Localidad = localidad;
 		this.Sexo = sexo;
-		//this.añoCursada = añoCursada;
+		//this.aÃ±oCursada = aÃ±oCursada;
 	}
 
 	public Student() {}
@@ -97,11 +97,11 @@ public class Student
 	
 //	public int getAnioCursada() 
 //	{
-//		return añoCursada;
+//		return aÃ±oCursada;
 //	}
 //	
-//	public void setAnioCursada(int añoCursada) 
+//	public void setAnioCursada(int aÃ±oCursada) 
 //	{
-//		this.añoCursada = añoCursada;
+//		this.aÃ±oCursada = aÃ±oCursada;
 //	}
 }

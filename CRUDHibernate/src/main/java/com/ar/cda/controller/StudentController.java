@@ -1,4 +1,4 @@
-package com.ar.cda.controller;
+package main.java.com.ar.cda.controller;
 
 import java.util.Map;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.ar.cda.model.Student;
-import com.ar.cda.service.StudentService;
+import main.java.com.ar.cda.model.Student;
+import main.java.com.ar.cda.service.StudentService;
 
 @Controller
 public class StudentController 
@@ -32,6 +32,8 @@ public class StudentController
 	public String doActions(@ModelAttribute Student student, BindingResult results, @RequestParam String action, Map<String, Object> map) 
 	{
 		Student studentFinal = new Student();
+		Student error = new Student();
+		
 		switch(action.toLowerCase())
 		{
 		case "add":	studentService.add(student);
@@ -44,12 +46,14 @@ public class StudentController
 					 studentFinal = student;
 					 break;
 		case "search": Student searchedStudent = studentService.getStudent(student.getStudentId());
-					   studentFinal = searchedStudent != null ? searchedStudent : new Student() ;
+					   studentFinal = searchedStudent != null ? searchedStudent : new Student();; ;
+					   if(studentFinal.getNombre() == null) {error.setNombre("Usuario no existe");}
 					   break;
 		}
+		map.put("error", error);
 		map.put("student", studentFinal);
 		map.put("studentList", studentService.getAllStudents());
-		
+			
 		return "student";
 	}
 }

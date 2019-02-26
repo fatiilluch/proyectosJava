@@ -1,8 +1,8 @@
-package com.ar.cda.service;
+package main.java.com.ar.cda.service;
 
 import java.util.List;
 
-import com.ar.cda.model.Student;
+import main.java.com.ar.cda.model.Student;
 
 public interface StudentService 
 {
