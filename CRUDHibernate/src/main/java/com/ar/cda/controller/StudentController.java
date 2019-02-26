@@ -36,7 +36,12 @@ public class StudentController
 		
 		switch(action.toLowerCase())
 		{
-		case "add":	studentService.add(student);
+		case "add":	if(student.getApellido().equals("") || student.getNombre().equals("") || student.getLocalidad().equals("") || student.getSexo().equals("T"))
+					{
+						error.setApellido("Ingrese un valor valido");
+						break;
+					}
+					studentService.add(student);
 					studentFinal = student;
 					break;
 		case "delete": studentService.delete(student.getStudentId());
@@ -46,12 +51,13 @@ public class StudentController
 					 studentFinal = student;
 					 break;
 		case "search": Student searchedStudent = studentService.getStudent(student.getStudentId());
-					   studentFinal = searchedStudent != null ? searchedStudent : new Student();; ;
+					   studentFinal = searchedStudent != null ? searchedStudent : new Student() ;
 					   if(studentFinal.getNombre() == null) {error.setNombre("Usuario no existe");}
 					   break;
 		}
 		map.put("error", error);
-		map.put("student", studentFinal);
+		map.put("studentA", studentFinal);
+		
 		map.put("studentList", studentService.getAllStudents());
 			
 		return "student";

@@ -13,7 +13,7 @@ public class Student
 {
 	@Id
 	@Column
-	@GeneratedValue(strategy = GenerationType.AUTO) //for autonumber
+    @GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
 	@Column
@@ -26,12 +26,12 @@ public class Student
 	private String Localidad;
 	
 	@Column
-	private char Sexo;
+	private String Sexo;
 	
 //	@Column
 //	private int añoCursada;
 	
-	public Student(int studentId, String nombre, String apellido, String localidad, char sexo) 
+	public Student(int studentId, String nombre, String apellido, String localidad, String sexo) 
 	{
 		this.id = studentId;
 		this.Nombre = nombre;
@@ -83,12 +83,12 @@ public class Student
 		this.Localidad = localidad;
 	}
 	
-	public char getSexo() 
+	public String getSexo() 
 	{
 		return Sexo;
 	}
 	
-	public void setSexo(char sexo) 
+	public void setSexo(String sexo) 
 	{
 		this.Sexo = sexo;
 	}
