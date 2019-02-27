@@ -15,5 +15,6 @@ public interface StudentService
 	public Student getStudent(int studentId);
 
 	public List<Student> getAllStudents();
-
+	
+	public List<Student> busqueda(String columna, String Letra); 
 }

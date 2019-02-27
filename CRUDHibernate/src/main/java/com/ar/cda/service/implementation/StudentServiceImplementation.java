@@ -43,11 +43,21 @@ public class StudentServiceImplementation implements StudentService
 	{
 		return studentDao.getStudent(studentId);
 	}
+	
+	@Override
+	@Transactional
+    public List <Student> getAllStudents() 
+    {
+       	return studentDao.getAllStudents();
+    }
 
 	@Override
 	@Transactional
-    	public List getAllStudents() 
-    	{
-        	return studentDao.getAllStudents();
-    	}
+	public List<Student> busqueda(String columna, String Letra) 
+	{
+		return studentDao.busqueda(columna, Letra);
+	}
+
+	
+
 }

@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-	
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
 <%@ include file="/WEB-INF/jsp/includes.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -17,9 +18,11 @@
 <title>Student Management</title>
 
 <style>
-#error {
-	background-color: lightblue;
-	color: rgb(245, 140, 247);
+.table-wrapper-scroll-y {
+	display: block;
+	max-height: 300px;
+	overflow-y: auto;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
 }
 </style>
 <script src="<c:url value="/resources/main.js" />"></script>
@@ -27,10 +30,11 @@
 </head>
 
 <body>
-	<h1>Students Data</h1>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-6">
+			<div class="col-5">
+
+				<h1>Students Data</h1>
 				<form:form action="student.do" method="POST" commandName="student">
 					<table>
 						<tr>
@@ -52,65 +56,115 @@
 						<tr>
 							<td>Sexo</td>
 							<td><form:select path="Sexo">
-							<form:option value="T">Elegi uno</form:option>
-							<form:option value="M">Masculino</form:option>
-							<form:option value="F">Femenino</form:option>
-							</form:select>
-							</td>
+									<form:option value="T">Elegi uno</form:option>
+									<form:option value="M">Masculino</form:option>
+									<form:option value="F">Femenino</form:option>
+								</form:select></td>
 						</tr>
 						<tr>
-							<td colspan="2">
-							<input type="submit" name="action" value="Add" id = add />
-							<input type="submit" name="action" value="Edit" />
-							<input type="submit" name="action" value="Delete" /> 
-							<input type="submit" name="action" value="Search" />
-							</td>
+							<td colspan="2"><input type="submit" name="action"
+								value="Add" id=add /> <input type="submit" name="action"
+								value="Edit" /> <input type="submit" name="action"
+								value="Delete" /></td>
 						</tr>
 					</table>
 				</form:form>
+
+
 			</div>
-			<div class="col-6">
-				<h1 id="error" class="text-center">${error.getNombre()}</h1>
-				<button id="buton">clickeame</button>
-				<table>
-					<tr>
-						<td>${studentA.getNombre()}</td>
-						<td>${studentA.getApellido()}</td>
-						<td>${studentA.getLocalidad()}</td>
-						<td>${studentA.getSexo()}</td>
-					</tr>
-				</table>
+			<div class="col-7">
+				<h2>BUSQUEDA</h2>
+				<div class="table-wrapper-scroll-y">
+					<table border="1" class="table-bordered table-striped table">
+						<thead>
+							<tr>
+								<th scope="col">ID</th>
+								<th scope="col">Nombre</th>
+								<th scope="col">Apellido</th>
+								<th scope="col">Localidad</th>
+								<th scope="col">Sexo</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${studentListBusqueda}" var="student">
+								<tr>
+									<th scope="row">${student.studentId}</th>
+									<td>${student.getNombre()}</td>
+									<td>${student.getApellido()}</td>
+									<td>${student.getLocalidad()}</td>
+									<td>${student.getSexo()}</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 
 		<br>
 
-		<div class="row">
-			<div class="col-8">
-				<table border="1" class="table">
-					<thead>
+
+		<div class="table-wrapper-scroll-y">
+			<table border="1" class="table-bordered table-striped table">
+				<thead>
+					<tr>
+						<th scope="col">ID</th>
+						<th scope="col">Nombre</th>
+						<th scope="col">Apellido</th>
+						<th scope="col">Localidad</th>
+						<th scope="col">Sexo</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${studentList}" var="student">
 						<tr>
-							<th scope="col">ID</th>
-							<th scope="col">Nombre</th>
-							<th scope="col">Apellido</th>
-							<th scope="col">Localidad</th>
-							<th scope="col">Sexo</th>
+							<th scope="row">${student.studentId}</th>
+							<td>${student.getNombre()}</td>
+							<td>${student.getApellido()}</td>
+							<td>${student.getLocalidad()}</td>
+							<td>${student.getSexo()}</td>
 						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${studentList}" var="student">
-							<tr>
-								<th scope="row">${student.studentId}</th>
-								<td>${student.getNombre()}</td>
-								<td>${student.getApellido()}</td>
-								<td>${student.getLocalidad()}</td>
-								<td>${student.getSexo()}</td>
-							</tr>
-						</c:forEach>
-					</tbody>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="row">
+			<form:form action="search.student" method="POST">
+				<table>
+					<tr>
+						<td>First name</td>
+						<td><input name="n" /></td>
+						<td><input type="submit" name="action" value="Nombre" /></td>
+					</tr>
+					<tr>
+						<td>Last name</td>
+						<td><input name="a" /></td>
+						<td><input type="submit" name="action" value="Apellido" /></td>
+					</tr>
+					<tr>
+						<td>Localidad</td>
+						<td><input name="l" /></td>
+						<td><input type="submit" name="action" value="Localidad" /></td>
+					</tr>
+					<tr>
+						<td>Sexo</td>
+						<td><input name="s" /></td>
+						<td><input type="submit" name="action" value="Sexo" /></td>
+					</tr>
+<%-- 					<c:forEach items="${studentListBusqueda}" var="student"> --%>
+<!-- 								<tr> -->
+<%-- 									<th scope="row">${student.studentId}</th> --%>
+<%-- 									<td>${student.getNombre()}</td> --%>
+<%-- 									<td>${student.getApellido()}</td> --%>
+<%-- 									<td>${student.getLocalidad()}</td> --%>
+<%-- 									<td>${student.getSexo()}</td> --%>
+<!-- 								</tr> -->
+<%-- 							</c:forEach> --%>
 				</table>
-			</div>
+			</form:form>
 		</div>
 	</div>
+
 </body>
 </html>

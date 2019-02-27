@@ -92,7 +92,8 @@ public class Student
 	{
 		this.Sexo = sexo;
 	}
-	
+
+
 	
 	
 //	public int getAnioCursada() 
