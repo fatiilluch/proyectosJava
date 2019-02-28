@@ -31,10 +31,12 @@
 
 <body>
 	<div class="container-fluid">
-		<div class="row">
-			<div class="col-5">
 
-				<h1>Students Data</h1>
+		<h1 align="center">Students Data</h1>
+		<div class="row">
+
+			<div class="col-4">
+
 				<form:form action="student.do" method="POST" commandName="student">
 					<table>
 						<tr>
@@ -72,10 +74,64 @@
 
 
 			</div>
-			<div class="col-7">
-				<h2>BUSQUEDA</h2>
+			<div class="col-8">
 				<div class="table-wrapper-scroll-y">
 					<table border="1" class="table-bordered table-striped table">
+						<thead>
+							<tr>
+								<th scope="col">ID</th>
+								<th scope="col">Nombre</th>
+								<th scope="col">Apellido</th>
+								<th scope="col">Localidad</th>
+								<th scope="col">Sexo</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${studentList}" var="student">
+								<tr>
+									<th scope="row">${student.studentId}</th>
+									<td>${student.getNombre()}</td>
+									<td>${student.getApellido()}</td>
+									<td>${student.getLocalidad()}</td>
+									<td>${student.getSexo()}</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<br>
+		<h2 align="center">BUSQUEDA</h2>
+		<div class="row">
+			<div class="col-4">
+				<form:form action="search.student" method="POST">
+					<table>
+						<tr>
+							<td><input type="submit" name="action" value="Nombre" /></td>
+							<td><input name="n" /></td>
+						</tr>
+						<tr>
+							<td><input type="submit" name="action" value="Apellido" /></td>
+							<td><input name="a" /></td>
+						</tr>
+						<tr>
+							<td><input type="submit" name="action" value="Localidad" /></td>
+							<td><input name="l" /></td>
+						</tr>
+						<tr>
+							<td><input type="submit" name="action" value="Sexo" /></td>
+							<td><input name="s" /></td>
+						</tr>
+					</table>
+				</form:form>
+			</div>
+			<div class="col-8">
+
+				<div class="table-wrapper-scroll-y">
+					<table border="1"
+						class="table-bordered table-striped table table-fixed">
 						<thead>
 							<tr>
 								<th scope="col">ID</th>
@@ -99,70 +155,6 @@
 					</table>
 				</div>
 			</div>
-		</div>
-
-		<br>
-
-
-		<div class="table-wrapper-scroll-y">
-			<table border="1" class="table-bordered table-striped table">
-				<thead>
-					<tr>
-						<th scope="col">ID</th>
-						<th scope="col">Nombre</th>
-						<th scope="col">Apellido</th>
-						<th scope="col">Localidad</th>
-						<th scope="col">Sexo</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach items="${studentList}" var="student">
-						<tr>
-							<th scope="row">${student.studentId}</th>
-							<td>${student.getNombre()}</td>
-							<td>${student.getApellido()}</td>
-							<td>${student.getLocalidad()}</td>
-							<td>${student.getSexo()}</td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-		</div>
-
-		<div class="row">
-			<form:form action="search.student" method="POST">
-				<table>
-					<tr>
-						<td>First name</td>
-						<td><input name="n" /></td>
-						<td><input type="submit" name="action" value="Nombre" /></td>
-					</tr>
-					<tr>
-						<td>Last name</td>
-						<td><input name="a" /></td>
-						<td><input type="submit" name="action" value="Apellido" /></td>
-					</tr>
-					<tr>
-						<td>Localidad</td>
-						<td><input name="l" /></td>
-						<td><input type="submit" name="action" value="Localidad" /></td>
-					</tr>
-					<tr>
-						<td>Sexo</td>
-						<td><input name="s" /></td>
-						<td><input type="submit" name="action" value="Sexo" /></td>
-					</tr>
-<%-- 					<c:forEach items="${studentListBusqueda}" var="student"> --%>
-<!-- 								<tr> -->
-<%-- 									<th scope="row">${student.studentId}</th> --%>
-<%-- 									<td>${student.getNombre()}</td> --%>
-<%-- 									<td>${student.getApellido()}</td> --%>
-<%-- 									<td>${student.getLocalidad()}</td> --%>
-<%-- 									<td>${student.getSexo()}</td> --%>
-<!-- 								</tr> -->
-<%-- 							</c:forEach> --%>
-				</table>
-			</form:form>
 		</div>
 	</div>
 

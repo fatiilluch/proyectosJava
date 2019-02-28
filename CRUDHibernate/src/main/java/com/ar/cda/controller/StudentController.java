@@ -66,7 +66,7 @@ public class StudentController
 		map.put("error", error);
 		map.put("studentA", studentFinal);
 		
-		map.put("studentList", studentService.getAllStudents());
+		map.put("studentList", studentService.getAllStudents()); //en cada uso del controlador aplica el metodo que llama a toda la tabla
 			
 		return "student";
 	}
@@ -88,7 +88,7 @@ public class StudentController
 		 				break;
 		 }
 		
-		map.put("student", student);
+		map.put("studentList", studentService.getAllStudents()); //en cada uso del controlador aplica el metodo que llama a toda la tabla
 		map.put("studentListBusqueda", studentBusqueda);
 		return "student";
 	}
