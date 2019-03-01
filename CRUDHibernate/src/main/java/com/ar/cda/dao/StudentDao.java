@@ -17,4 +17,6 @@ public interface StudentDao
 	public List<Student> getAllStudents();
 	
 	public List<Student> busqueda(String columna, String Letra);
+	
+	public List<Student> busquedaEdad(String columna, int Edad);
 }
